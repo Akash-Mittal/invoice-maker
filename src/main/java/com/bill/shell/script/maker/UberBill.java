@@ -195,6 +195,7 @@ public class UberBill extends Bill {
 
 		uberTemplateImage.dispose();
 		ImageIO.write(image, "png", new File(billParams[5]));
+		System.out.println(billParams[5] + ":" + billParams[4]);
 
 	}
 }

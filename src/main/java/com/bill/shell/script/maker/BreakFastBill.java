@@ -42,20 +42,22 @@ public class BreakFastBill extends Bill {
 			int shake = ThreadLocalRandom.current().nextInt(180, 250 + 1);
 			int salad = 255;
 			templateFile = templateFile.replace("XXXMAINCOURSE1",
-					breakFastMapMainCourse.get(ThreadLocalRandom.current().nextInt(0, 8 + 1)) + "" + main1);
+					breakFastMapMainCourse.get(ThreadLocalRandom.current().nextInt(0, 8 + 1)) + " Rs:" + main1);
 			templateFile = templateFile.replace("XXXMAINCOURSE2",
-					breakFastMapShake.get(ThreadLocalRandom.current().nextInt(0, 3 + 1)) + "" + shake);
-			templateFile = templateFile.replace("XXXBREAD", " Fruit Salad  X 1 " + "" + salad);
+					breakFastMapShake.get(ThreadLocalRandom.current().nextInt(0, 3 + 1)) + " Rs:" + shake);
+			templateFile = templateFile.replace("XXXBREAD", " Fruit Salad  X 1 " + " Rs:" + salad);
 			int breakFast = main1 + shake + salad;
 			templateFile = templateFile.replace("XXXRICE", "").replaceAll("XXXCURD", "").replaceAll("XXXDESERT", "");
 			templateFile = templateFile.replace("XXXTOTALCOST", breakFast + "");
 			templateFile = templateFile.replace("XXXPDFFILE", fileName);
 			totalSpent = breakFast + totalSpent;
 			Files.write(Paths.get(fileName), templateFile.getBytes(), StandardOpenOption.CREATE_NEW);
+			System.out.println(fileName + ":" + breakFast);
+
 			cStart.add(Calendar.DAY_OF_MONTH, 1);
 
 		}
-		System.out.println("Total Spent on Lunch: " + totalSpent);
+		System.out.println("Total Spent on BF: " + totalSpent);
 
 	}
 }

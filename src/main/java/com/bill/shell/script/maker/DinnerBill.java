@@ -25,7 +25,7 @@ public class DinnerBill extends Bill {
 		cStart.setTime(start);
 		Calendar cEnd = Calendar.getInstance();
 		cEnd.setTime(end);
-
+		int total = 0;
 		while (cStart.before(cEnd)) {
 			String templateFile = new String(Files.readAllBytes(
 					Paths.get("D:\\ECLIPSE-WORKSPACE\\STS3.9\\maker\\src\\main\\resources\\invoice-template")));
@@ -49,24 +49,26 @@ public class DinnerBill extends Bill {
 			int deserts = ThreadLocalRandom.current().nextInt(200, 500 + 1);
 
 			templateFile = templateFile.replace("XXXMAINCOURSE1",
-					mainCourseMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + main1);
+					mainCourseMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + main1);
 			templateFile = templateFile.replace("XXXMAINCOURSE2",
-					mainCourseMap.get(ThreadLocalRandom.current().nextInt(5, 11 + 1)) + "" + main2);
+					mainCourseMap.get(ThreadLocalRandom.current().nextInt(5, 11 + 1)) + " Rs:" + main2);
 
 			templateFile = templateFile.replace("XXXBREAD",
-					breadMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + bread);
+					breadMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + bread);
 			templateFile = templateFile.replace("XXXRICE",
-					riceMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + rice);
+					riceMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + rice);
 			templateFile = templateFile.replace("XXXCURD",
-					curdMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + curd);
+					curdMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + curd);
 			templateFile = templateFile.replace("XXXDESERT",
-					desertMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + deserts);
-			templateFile = templateFile.replace("XXXTOTALCOST", main1 + main2 + rice + bread + curd + deserts + "");
+					desertMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + deserts);
+			int dinner = main1 + main2 + rice + bread + curd + deserts;
+			templateFile = templateFile.replace("XXXTOTALCOST", +dinner + "");
 			templateFile = templateFile.replace("XXXPDFFILE", fileName);
-
+			total = dinner + total;
 			Files.write(Paths.get(fileName), templateFile.getBytes(), StandardOpenOption.CREATE_NEW);
-			System.out.println(templateFile);
-		}
+			System.out.println(fileName + ":" + (main1 + main2 + rice + bread + curd + deserts));
 
+		}
+		System.out.println("Total Spent on Dinner: " + total);
 	}
 }

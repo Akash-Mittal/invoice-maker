@@ -43,7 +43,7 @@ public class Bill {
 
 		riceMap.add(" Thai Prawn Rice  Quantity: 1 ");
 		riceMap.add(" Chicken Fried Rice  Quantity: 1 ");
-		riceMap.add(" Shauchwan Chilli Rice  Quantity: 1 ");
+		riceMap.add(" szechuan Chilli Rice  Quantity: 1 ");
 		riceMap.add(" Dum Biryani  Quantity: 1 ");
 		riceMap.add(" Rogan Hara Bhara  Quantity: 1 ");
 
@@ -69,10 +69,10 @@ public class Bill {
 		breakFastMapMainCourse.add(" FarmHouse Bell Pepper Pizza - Cheese Burst  Quantity: 1 ");
 		breakFastMapMainCourse.add(" Pav Bhaji Combo  Quantity: 1 ");
 
-		breakFastMapShake.add("Extra Virgin Choclate Shake  Quantity: 1 ");
+		breakFastMapShake.add("Extra Virgin ChocoVanilla Shake  Quantity: 1 ");
 		breakFastMapShake.add("Almond Cashew Shake  Quantity: 1 ");
 		breakFastMapShake.add("Banana Shake With Ice Cream  Quantity: 1 ");
-		breakFastMapShake.add("Cold Coffe With Ice Cream Qauntity: 1 ");
+		breakFastMapShake.add("Cold Coffee With Ice Cream Qauntity: 1 ");
 
 		driverNames.add("Rajendar ");
 		driverNames.add("Hem ");

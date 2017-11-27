@@ -12,13 +12,13 @@ akash.mittal@nagarro.com
   -d payment_terms="Charged With Visa Debit Card XXXX9832" \
   -d items[0][name]=" XXXMAINCOURSE1 XXXMAINCOURSE2 XXXBREAD XXXRICE XXXCURD XXXDESERT" \
   -d items[0][unit_cost]="XXXTOTALCOST"\
-  -d tax_title="CGST(6%) + SGST(6%)" \
+  -d tax_title="Service Charge" \
   -d fields[tax]="%" \
-  -d tax=12 \
+  -d tax=6 \
   -d currency=INR \
-  -d notes="Thanks for being an awesome customer! This is Consolidated Bill,If you need Individual Invoice please write us at corporate@freshmenu.com " \
+  -d notes="Thanks for being an awesome customer! This is Consolidated Bill" \
   -d terms="We are abiding by some statutory requirements which is below! Reg Name: Food Vista India Pvt. Ltd.
-CIN: U15209KA2014PTC075887 PAN: AACCF4496Q Reg.Off Add: No 6, Idiqube Delta, 14th Main
+ Reg.Off Add: No 6, Idiqube Delta, 14th Main
 Road, 5th Sector, HSR Layout, Bangalore - 560102 
 
 Write to orders@freshmenu.com" \

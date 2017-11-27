@@ -46,23 +46,24 @@ public class LunchBill extends Bill {
 			int deserts = ThreadLocalRandom.current().nextInt(200, 500 + 1);
 
 			templateFile = templateFile.replace("XXXMAINCOURSE1",
-					mainCourseMap.get(ThreadLocalRandom.current().nextInt(0, 11 + 1)) + "" + main1);
+					mainCourseMap.get(ThreadLocalRandom.current().nextInt(0, 11 + 1)) + " Rs:" + main1);
 			templateFile = templateFile.replace("XXXMAINCOURSE2", "");
 
 			templateFile = templateFile.replace("XXXBREAD",
-					breadMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + bread);
+					breadMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + bread);
 			templateFile = templateFile.replace("XXXRICE",
-					riceMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + rice);
+					riceMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + rice);
 			templateFile = templateFile.replace("XXXCURD",
-					curdMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + curd);
+					curdMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + curd);
 			templateFile = templateFile.replace("XXXDESERT",
-					desertMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + "" + deserts);
+					desertMap.get(ThreadLocalRandom.current().nextInt(0, 4 + 1)) + " Rs:" + deserts);
 			int lunch = main1 + rice + bread + curd + deserts;
 			templateFile = templateFile.replace("XXXTOTALCOST", lunch + "");
 			templateFile = templateFile.replace("XXXPDFFILE", fileName);
 			totalSpent = lunch + totalSpent;
 			Files.write(Paths.get(fileName), templateFile.getBytes(), StandardOpenOption.CREATE_NEW);
-			// add one day to date
+			System.out.println(fileName + ":" + lunch);
+
 			cStart.add(Calendar.DAY_OF_MONTH, 1);
 
 		}
